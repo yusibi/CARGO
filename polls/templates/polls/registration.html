@@ -1,0 +1,65 @@
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+  <title>User registration</title>
+</head>
+<body>
+    <div class="form_container">
+        <div class="title_wrapper">
+            <div class="title_wr">
+            <div class="title">Реєстрація</div>
+            </div>
+            <a class="exit_img" href="{% url 'guest page' %}"><img src="{% static 'images/exit.svg' %}" alt="exit"></a>
+        </div>
+
+      <form method="post">
+        {% csrf_token %}
+        <div class="user-details">
+
+          <div class="input-box">
+            <span class="details">Прізвище</span>
+            <input type="text" name="username" id="id_username" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" placeholder="Введіть прізвище" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Логін</span>
+            <input type="text" name="login" pattern="[A-Za-z0-9]+" placeholder="Введіть логін" minlength="5" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Ім'я</span>
+            <input type="text" name="name" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" placeholder="Введіть ім'я" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Пароль</span>
+            <input type="tel" name="password1" pattern="[A-Za-z0-9]+" placeholder="Введіть пароль" minlength="5" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Номер телефону</span>
+            <input type="tel" name="phone_number" pattern="\+[3][8][0][0-9]{9}" placeholder="Введіть номер телефону" required>
+          </div>
+                <div class="input-box">
+            <span class="details">Роль</span>
+            <select name="role" title="Оберіть свою роль" required>
+              <option value="" disabled selected>Оберіть свою роль</option>
+              <option value="user">Замовник</option>
+              <option value="admin">Адміністратор</option>
+            </select>
+          </div>
+
+        </div>
+
+
+        <a class="btn_link" href="index.html"><button type="submit">Зареєструватися</button></a>
+      </form>
+    </div>
+
+
+<script type="text/javascript" src="{% static 'js/role.js' %}"></script>
+</body>
+</html>

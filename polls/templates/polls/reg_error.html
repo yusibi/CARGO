@@ -1,0 +1,43 @@
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/reg_error.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+  <title>Registration Error</title>
+</head>
+<body>
+    <div class="form_container">
+        <div class="title_wrapper">
+            <div class="title_wr">
+            <div class="title">Увага! Виникла помилка!</div>
+            </div>
+
+            <a class="exit_img" href="{% url 'register' %}"><img src="{% static 'images/exit.svg' %}" alt="exit"></a>
+        </div>
+
+
+
+<hr>
+
+
+      <form action="#" id="form">
+        <div class="user-details">
+
+          <p class="p1">Шановний користувач, Ви намагаєтесь зареєструватись під вже існуючим логіном або паролем, або ж Ви ввели вже збережений в системі номер телефону.</p>
+          <p class="p2">Будь ласка, змініть значення цих полів та відправте форму ще раз.</p>
+
+
+        </div>
+
+
+      </form>
+    </div>
+
+<script type="text/javascript" src="js/order delivery.js"></script>
+</body>
+</html>
