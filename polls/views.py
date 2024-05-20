@@ -4,7 +4,8 @@ from django.db import IntegrityError
 
 
 def index1(request):
-    return render(request, 'polls/guest page.html')
+    customer_count = Customer.objects.filter(role='a').count()
+    return render(request, 'polls/guest page.html', {'customer_count': customer_count})
 
 
 def index2(request):
@@ -14,6 +15,9 @@ def index2(request):
 def index3(request):
     return render(request, 'polls/admin page.html')
 
+
+def authorization(request):
+    return render(request, 'polls/authorization.html')
 
 def register(request):
     if request.method == 'POST':
@@ -39,6 +43,4 @@ def register(request):
         except IntegrityError:
             return render(request, 'polls/reg_error.html')
     return render(request, 'polls/registration.html')
-
-
 
