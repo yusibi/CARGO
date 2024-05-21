@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin_page/', views.index3, name='display admin page'),
     path('registration/', views.register, name='register'),
     path('authorization/', views.authorization, name='author'),
+    path('authorization_error/', views.authorization_error, name='authorization_error'),
     #path('polls/', views.index1, name='index2'),
 
 ]
