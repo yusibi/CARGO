@@ -142,3 +142,69 @@ a {
     width: 600px;
 }
 
+.cargo_statistics {
+    background: #ECE5BE;
+    padding-top: 64px;
+    padding-bottom: 78px;
+}
+
+.header_text {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    padding-top: 0px;
+    padding-bottom: 50px;
+    color: #464646;
+}
+
+.stat {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stat__item {
+    width: 100%;
+    max-width: 25%;
+    text-align: center;
+    color: #5b5b5b;
+    font-weight: 600;
+    padding: 60px 5px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    border-radius: 5px;
+    border-left: 1.3px solid #F9EFE0;
+}
+
+.stat__item:hover {
+    background: white;
+}
+
+.four, .eight {
+    border-right: 1.3px solid #F9EFE0;
+}
+
+.top {
+    border-top: 1.3px solid #F9EFE0;
+}
+
+.bottom {
+    border-bottom: 1.3px solid #F9EFE0;
+}
+
+.stat__count {
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+    color: #DC9C50;
+}
+
+.ths {
+    font-size: 32px;
+}
+
+.stat__text {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #DC9C50;
+}
