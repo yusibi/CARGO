@@ -102,3 +102,43 @@ a {
     transition: 0.3s;
 }
 
+.intro {
+    padding-top: 140px;
+    padding-bottom: 64px;
+}
+
+.intro_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.intro_text {
+    width: 600px;
+}
+
+.intro_image {
+    width: 600px;
+    align-items: center;
+}
+
+.intro_title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #404040;
+}
+
+.intro_subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: #868686;
+    max-width: 420px;
+    padding-top: 22px;
+    padding-bottom: 26px;
+    line-height: 1.52em;
+}
+
+.lorry {
+    width: 600px;
+}
+
