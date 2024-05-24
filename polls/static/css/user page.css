@@ -172,7 +172,7 @@ a {
     transition: all 0.3s linear;
     cursor: pointer;
     border-radius: 5px;
-    border-left: 1.3px solid #F9EFE0;
+    border-left: 1.5px solid #FFF;
 }
 
 .stat__item:hover {
@@ -303,5 +303,20 @@ a {
     height: 300px;
     overflow: clip;
     z-index: 2;
+}
+
+.footer {
+    background-color: #fff;
+    display: flex;
+    box-shadow: 0 0 15px rgb(0 0 0 / 35%);
+    width: 100%;
+    z-index: 3;
+}
+
+.footer_inner {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
 }
 

@@ -4,16 +4,17 @@ from django.db import IntegrityError
 
 
 def index1(request):
-    customer_count = Customer.objects.filter(role='a').count()
-    return render(request, 'polls/guest page.html', {'customer_count': customer_count})
+    return render(request, 'polls/guest page.html')
 
 
 def index2(request):
-    return render(request, 'polls/user page.html')
+    customer_count = Customer.objects.filter(role='a').count()
+    return render(request, 'polls/user page.html', {'customer_count': customer_count})
 
 
 def index3(request):
-    return render(request, 'polls/admin page.html')
+    customer_count = Customer.objects.filter(role='a').count()
+    return render(request, 'polls/admin page.html', {'customer_count': customer_count})
 
 
 def authorization(request):
@@ -26,7 +27,7 @@ def authorization(request):
                 if customer.role == 'a':
                     return redirect('display user page')  # URL-ім'я сторінки для замовників
                 elif customer.role == 'b':
-                    return redirect('display admin page.css')  # URL-ім'я сторінки для адміністраторів
+                    return redirect('display admin page')  # URL-ім'я сторінки для адміністраторів
         except Customer.DoesNotExist:
             return redirect('authorization_error')  # URL-ім'я сторінки з помилкою авторизації
     return render(request, 'polls/authorization.html')

@@ -160,3 +160,18 @@ a {
 .lorry {
     width: 576px;
 }
+
+.footer {
+    background-color: #fff;
+    display: flex;
+    box-shadow: 0 0 15px rgb(0 0 0 / 35%);
+    width: 100%;
+    z-index: 3;
+}
+
+.footer_inner {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
