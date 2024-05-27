@@ -9,6 +9,7 @@ urlpatterns = [
     path('registration/', views.register, name='register'),
     path('authorization/', views.authorization, name='author'),
     path('authorization_error/', views.authorization_error, name='authorization_error'),
+    path('about_us/', views.show_info_about_us, name='ab_us'),
     #path('polls/', views.index1, name='index2'),
 
 ]
