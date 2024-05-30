@@ -62,5 +62,11 @@ def register(request):
             return render(request, 'polls/reg_error.html')
     return render(request, 'polls/registration.html')
 
+
 def show_info_about_us(request):
     return render(request, 'polls/about us.html')
+
+
+def show_service(request):
+    return render(request, 'polls/service.html')
+
