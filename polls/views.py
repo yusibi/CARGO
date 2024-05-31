@@ -57,7 +57,7 @@ def register(request):
             if role == 'a':
                 return redirect('display user page')
             elif role == 'b':
-                return redirect('display admin page.css')
+                return redirect('display admin page')
         except IntegrityError:
             return render(request, 'polls/reg_error.html')
     return render(request, 'polls/registration.html')
