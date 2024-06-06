@@ -22,6 +22,7 @@ urlpatterns = [
     #path('polls/', views.index1, name='index2'),
     #path('my_deliveries/', views.show_my_del, name='my_dev'),
     #path('my_deliveries/', views.list_of_orders, name='my_dev'),
+    path('list_of_orders/', views.show_list_of_orders, name='list'),
 
 ]
 

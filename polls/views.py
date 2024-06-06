@@ -232,3 +232,10 @@ def show_er(request):
 
 def show_res(request):
     return render(request, 'polls/suc_order_mes.html')
+
+
+def show_list_of_orders(request):
+    orders = Order.objects.all()
+    if request.method == 'GET':
+        return render(request, 'polls/list_of_orders.html', {'orders': orders})
+
