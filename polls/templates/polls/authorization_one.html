@@ -18,7 +18,7 @@
             </div>
             <a class="exit_img" href="{% url 'guest page' %}"><img src="{% static 'images/exit.svg' %}" alt="exit"></a>
         </div>
-        <form id="loginForm" method="post">
+        <form action="{% url 'display user page' %}" id="loginForm" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <label for="username">Логін</label>

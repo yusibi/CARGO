@@ -1,0 +1,36 @@
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизація</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/authorization.css' %}">
+</head>
+<body>
+<div class="login-container">
+        <div class="title_wrapper">
+            <div class="title_wr">
+            <div class="title">Авторизація</div>
+            </div>
+            <a class="exit_img" href="{% url 'display user page' %}"><img src="{% static 'images/exit.svg' %}" alt="exit"></a>
+        </div>
+        <form action="{% url 'delivery' %}" id="loginForm" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Логін</label>
+                <input type="text" id="username" placeholder="Введіть логін" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="text" id="password" placeholder="Введіть пароль" name="password" required>
+            </div>
+
+            <a class="btn_link" href="index.html"><button type="submit">Увійти</button></a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/order_delivery.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+  <title>Замовлення доставки</title>
+</head>
+<body>
+    <div class="form_container">
+      <div class="title_wrapper">
+          <div class="title">Заповніть форму</div>
+          <a href="{% url 'display user page' %}"><img src="{% static 'images/exit.svg' %}" alt="exit"></a>
+        </div>
+
+      <form action="{% url 'delivery' %}" id="form" method="post">
+        {% csrf_token %}
+        <div class="user-details">
+
+          <div class="input-box">
+            <span class="details">Прізвище</span>
+            <input type="text" name="surname" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" value="{{ customer_second_name }}"required>
+          </div>
+          <div class="input-box">
+            <span class="details">Ім'я</span>
+            <input type="text" name="name" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" value="{{ customer_first_name }}" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Номер телефону</span>
+            <input type="tel" name="phone_number" pattern="\+[3][8][0][0-9]{9}" value="{{ customer_phone_number }}" required>
+          </div>
+          <div class="input-box2">
+            <span class="details">Електронна пошта</span>
+            <input type="email" name="email" placeholder="Введіть пошту замовника" required>
+          </div>
+
+                <div class="input-box2">
+            <span class="details">Тип доставки</span>
+            <select title="Оберіть тип доставки" name="type" required>
+              <option value="" disabled selected>Оберіть тип доставки</option>
+              <option value="Стандартна доставка">Стандартна доставка</option>
+              <option value="Доставка тварин">Доставка тварин</option>
+              <option value="Доставка буд-матеріалів">Доставка буд-матеріалів</option>
+              <option value="Доставка техніки">Доставка техніки</option>
+              <option value="Надгабаритний вантаж">Надгабаритний вантаж</option>
+              <option value="Небезпечний вантаж">Небезпечний вантаж</option>
+            </select>
+          </div>
+
+                <hr>
+              <div class="input-box">
+            <span class="details">Вага / Об'єм / Кількість вантажу</span>
+            <input type="number" name="weight" pattern="[0-9]" placeholder="Впишіть значення" required min="1">
+          </div>
+          <div class="input-box">
+            <span class="details">Місто відправлення</span>
+            <select title="Оберіть місто." name="city_1" required>
+              <option value="" disabled selected>Оберіть місто</option>
+              <option value="Вінниця">Вінниця</option>
+              <option value="Дніпро">Дніпро</option>
+              <option value="Донецьк">Донецьк</option>
+              <option value="Житомир">Житомир</option>
+              <option value="Запоріжжя">Запоріжжя</option>
+              <option value="Івано-Франківськ">Івано-Франківськ</option>
+              <option value="Київ">Київ</option>
+              <option value="Кропивницький">Кропивницький</option>
+              <option value="Луганськ">Луганськ</option>
+              <option value="Луцьк">Луцьк</option>
+              <option value="Львів">Львів</option>
+              <option value="Миколаїв">Миколаїв</option>
+              <option value="Одеса">Одеса</option>
+              <option value="Полтава">Полтава</option>
+              <option value="Рівне">Рівне</option>
+              <option value="Суми">Суми</option>
+              <option value="Тернопіль">Тернопіль</option>
+              <option value="Ужгород">Ужгород</option>
+              <option value="Харків">Харків</option>
+              <option value="Херсон">Херсон</option>
+              <option value="Хмельницький">Хмельницький</option>
+              <option value="Черкаси">Черкаси</option>
+              <option value="Чернівці">Чернівці</option>
+              <option value="Чернігів">Чернігів</option>
+          </select>
+          </div>
+            <div class="input-box">
+            <span class="details">Місто прибуття</span>
+            <select title="Оберіть місто." name="city_2" required>
+              <option value="" disabled selected>Оберіть місто</option>
+              <option value="Вінниця">Вінниця</option>
+              <option value="Дніпро">Дніпро</option>
+              <option value="Донецьк">Донецьк</option>
+              <option value="Житомир">Житомир</option>
+              <option value="Запоріжжя">Запоріжжя</option>
+              <option value="Івано-Франківськ">Івано-Франківськ</option>
+              <option value="Київ">Київ</option>
+              <option value="Кропивницький">Кропивницький</option>
+              <option value="Луганськ">Луганськ</option>
+              <option value="Луцьк">Луцьк</option>
+              <option value="Львів">Львів</option>
+              <option value="Миколаїв">Миколаїв</option>
+              <option value="Одеса">Одеса</option>
+              <option value="Полтава">Полтава</option>
+              <option value="Рівне">Рівне</option>
+              <option value="Суми">Суми</option>
+              <option value="Тернопіль">Тернопіль</option>
+              <option value="Ужгород">Ужгород</option>
+              <option value="Харків">Харків</option>
+              <option value="Херсон">Херсон</option>
+              <option value="Хмельницький">Хмельницький</option>
+              <option value="Черкаси">Черкаси</option>
+              <option value="Чернівці">Чернівці</option>
+              <option value="Чернігів">Чернігів</option>
+          </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Одиниця виміру</span>
+            <select title="Оберіть тип." name="od_v" required>
+              <option value="" disabled selected>Оберіть одиницю виміру</option>
+              <option value="кг.">кг.</option>
+              <option value="т.">т.</option>
+              <option value="л.">л.</option>
+              <option value="м^3">м^3</option>
+              <option value="од.">од.</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Дата відправлення</span>
+            <input type="date" name="date1" placeholder="Обери дату" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Дата прибуття</span>
+            <input type="date" name="date2" placeholder="Обери дату" required>
+          </div>
+
+          <div class="input-box-last">
+            <span class="details">Опис вантажу</span>
+            <textarea class="textarea" type="text" name="discript" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" placeholder="Опишіть Ваш вантаж" maxlength="300" required></textarea>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="submit" href="{% url 'res' %}" class="submit_btn">Відправити</button>
+        </div>
+      </form>
+    </div>
+
+</body>
+</html>
