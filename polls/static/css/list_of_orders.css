@@ -232,8 +232,8 @@ p {
 }
 
 .services {
-    padding-bottom: 64px;
-    padding-top: 64px;
+    padding-bottom: 50px;
+    padding-top: 48px;
     background: #fff;
     display: flex;
     justify-content: center;
@@ -243,10 +243,10 @@ p {
 .services_item {
     display: flex;
     justify-content: space-between;
-    padding: 60px 60px;
+    padding: 54px 60px 48px 60px;
     background: #eee;
     border-radius: 15px;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     width: 75%;
 
 }
@@ -262,7 +262,7 @@ p {
 .service_title {
     font-weight: 500;
     font-size: 16px;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
     max-width: 1000px;
     text-align: justify;
 }

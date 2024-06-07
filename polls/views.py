@@ -10,7 +10,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from django.conf import settings
 from smtplib import SMTPAuthenticationError
-from django.db.models import Q
 
 
 def index1(request):
@@ -19,12 +18,24 @@ def index1(request):
 
 def index2(request):
     customer_count = Customer.objects.filter(role='a').count()
-    return render(request, 'polls/user page.html', {'customer_count': customer_count})
+    if customer_count % 10 == 1 and customer_count % 100 != 11:
+        res = f"{customer_count} клієнт"
+    elif customer_count % 10 in [2, 3, 4] and customer_count % 100 not in [12, 13, 14]:
+        res = f"{customer_count} клієнти"
+    else:
+        res = f"{customer_count} клієнтів"
+    return render(request, 'polls/user page.html', {'res': res})
 
 
 def index3(request):
     customer_count = Customer.objects.filter(role='a').count()
-    return render(request, 'polls/admin page.html', {'customer_count': customer_count})
+    if customer_count % 10 == 1 and customer_count % 100 != 11:
+        res = f"{customer_count} клієнт"
+    elif customer_count % 10 in [2, 3, 4] and customer_count % 100 not in [12, 13, 14]:
+        res = f"{customer_count} клієнти"
+    else:
+        res = f"{customer_count} клієнтів"
+    return render(request, 'polls/admin page.html', {'res': res})
 
 
 def authorization_1(request):
@@ -157,8 +168,29 @@ def order_delivery(request):
             status="Не оброблене"
         )
         order.save()
+        message = ("Шановний клієнте, дякуємо, що скористалися сервісом доставки вантажів CARGO!\n"
+                   "Перегляньте деталі Вашого замовлення:\n\n"
+                   f"Прізвище: {order.customer_second_name}\n"
+                   f"Ім'я: {order.customer_first_name}\n"
+                   f"Номер телефону: {order.customer_phone_number}\n"
+                   f"Пошта: {order.email}\n"
+                   f"Тип доствки: {order.type}\n"
+                   f"Вага/Об'єм/Кількість вантажу: {order.wes}\n"
+                   f"Місто відправлення: {order.city_1}\n"
+                   f"Місто прибуття: {order.city_2}\n"
+                   f"Одиниця виміру: {order.od_vumiry}\n"
+                   f"Дата відправлення: {order.date_1}\n"
+                   f"Дата прибуття: {order.date_2}\n"
+                   f"Опис вантажу: {order.discr}\n"
+                   f"Статус: {order.status}\n")
+        send_mail(
+            'Сервіс CARGO',
+            message,
+            'vadimpanov652@gmail.com',  # Адреса відправника
+            [email],  # Список отримувачів
+            fail_silently=False,
+        )
         return redirect('res')
-
     return render(request, 'polls/order_delivery.html')
 
 
@@ -200,30 +232,6 @@ def order_delivery(request):
      #   order.save()
     #    return redirect('res')
   #  return render(request, 'polls/order_delivery.html')
-
-
-def send_notification_email(subject, plain_message, recipient_list, html_message=None):
-    msg = MIMEMultipart('alternative')
-    msg['Subject'] = subject
-    msg['From'] = settings.EMAIL_HOST_USER
-    msg['To'] = ', '.join(recipient_list)
-
-    # Attach the plain text and HTML message parts
-    msg.attach(MIMEText(plain_message, 'plain'))
-    if html_message:
-        msg.attach(MIMEText(html_message, 'html'))
-
-    try:
-        # Connect to the SMTP server and send the message
-        with smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT) as server:
-            server.starttls()
-            server.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
-            server.sendmail(settings.EMAIL_HOST_USER, recipient_list, msg.as_string())
-        #except SMTPAuthenticationError as e:
-        #return render(request, 'polls/post_error.html')
-        # Тут можна обробити помилку подальше, наприклад, відправити повідомлення адміністратору
-    except Exception as e:
-        print(f"An error occurred while sending email: {e}")
 
 
 def show_er(request):

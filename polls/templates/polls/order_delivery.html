@@ -23,16 +23,16 @@
 
           <div class="input-box">
             <span class="details">Прізвище</span>
-            <input type="text" name="surname" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" value="{{ customer_second_name }}"required>
+            <input type="text" name="surname" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" placeholder="Введіть прізвище" value="{{ customer_second_name }}"required>
           </div>
           <div class="input-box">
             <span class="details">Ім'я</span>
-            <input type="text" name="name" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" value="{{ customer_first_name }}" required>
+            <input type="text" name="name" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" placeholder="Введіть ім'я" value="{{ customer_first_name }}" required>
           </div>
 
           <div class="input-box">
             <span class="details">Номер телефону</span>
-            <input type="tel" name="phone_number" pattern="\+[3][8][0][0-9]{9}" value="{{ customer_phone_number }}" required>
+            <input type="tel" name="phone_number" pattern="\+[3][8][0][0-9]{9}" placeholder="Введіть номер телефону" value="{{ customer_phone_number }}" required>
           </div>
           <div class="input-box2">
             <span class="details">Електронна пошта</span>
