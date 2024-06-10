@@ -1,5 +1,5 @@
 from .models import Customer, Order
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.db import IntegrityError
 import random
 from django.template.loader import render_to_string
@@ -10,6 +10,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from django.conf import settings
 from smtplib import SMTPAuthenticationError
+from django.views.decorators.csrf import csrf_protect
 
 
 def index1(request):
@@ -176,9 +177,9 @@ def order_delivery(request):
                    f"Пошта: {order.email}\n"
                    f"Тип доствки: {order.type}\n"
                    f"Вага/Об'єм/Кількість вантажу: {order.wes}\n"
+                   f"Одиниця виміру: {order.od_vumiry}\n"
                    f"Місто відправлення: {order.city_1}\n"
                    f"Місто прибуття: {order.city_2}\n"
-                   f"Одиниця виміру: {order.od_vumiry}\n"
                    f"Дата відправлення: {order.date_1}\n"
                    f"Дата прибуття: {order.date_2}\n"
                    f"Опис вантажу: {order.discr}\n"
@@ -246,4 +247,15 @@ def show_list_of_orders(request):
     orders = Order.objects.all()
     if request.method == 'GET':
         return render(request, 'polls/list_of_orders.html', {'orders': orders})
+
+
+@csrf_protect
+def change_order_status(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    if request.method == 'POST':
+        new_status = request.POST.get('status')
+        order.status = new_status
+        order.save()
+        return redirect('list')
+    return render(request, 'polls/list_of_orders.html', {'orders': Order.objects.all()})
 
