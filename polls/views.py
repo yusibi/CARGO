@@ -259,3 +259,6 @@ def change_order_status(request, order_id):
         return redirect('list')
     return render(request, 'polls/list_of_orders.html', {'orders': Order.objects.all()})
 
+
+def show_review(request):
+    return render(request, 'polls/reviews.html')

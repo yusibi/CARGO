@@ -1,0 +1,48 @@
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html lang="uk">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reviews.css' %}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+	<title>Відгуки</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header_wrapper">
+                <div class="logo"><a class="logo_link" href="index.html">CAR<span class="go">GO</span></a></div>
+                    <div class="ham">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                <ul class="nav">
+                    <li><a href="{% url 'display user page' %}">Головна</a></li>
+                    <li><a href="{% url 'ab_us' %}">Про нас</a></li>
+                    <li><a href="{% url 'service' %}">Сервіс</a></li>
+                    <li class="active"><a href="#">Відгуки</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <div class="intro_wrapper">
+                <div class="intro_text">
+                    <h1 class="intro_title"><span class="header_go">Усі</span> думки наших замовників<br><span class="header_go">важливі</span> для нас</h1>
+                    <a class="button" href="#review_form">Написати відгук</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>

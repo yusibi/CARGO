@@ -24,5 +24,6 @@ urlpatterns = [
     #path('my_deliveries/', views.list_of_orders, name='my_dev'),
     path('list_of_orders/', views.show_list_of_orders, name='list'),
     path('admin/orders/change_status/<int:order_id>/', views.change_order_status, name='change_order_status'),
+    path('review/', views.show_review, name='review'),
 ]
 
