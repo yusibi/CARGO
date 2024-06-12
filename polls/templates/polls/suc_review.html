@@ -1,0 +1,40 @@
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/suc_review.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+  <title>Success_Review</title>
+</head>
+<body>
+    <div class="form_container">
+        <div class="title_wrapper">
+            <div class="title_wr">
+            <div class="title">Ваш відгук відправлено!</div>
+            </div>
+
+            <a class="exit_img" href="{% url 'review' %}"><img src="{% static 'images/exit.svg' %}" alt="exit"></a>
+        </div>
+
+<hr>
+
+      <form id="form">
+        <div class="user-details">
+
+          <p class="p1">Дякуємо, що допомагаєте нам ставати ще кращими! Ваша думка є дуже важливою для нас.</p>
+
+        </div>
+
+        <div class="buttons">
+          <a class="button1" href="{% url 'display user page' %}">На Головну</a>
+
+        </div>
+      </form>
+    </div>
+
+</body>
+</html>

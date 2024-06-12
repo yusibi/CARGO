@@ -41,8 +41,73 @@
                 </div>
             </div>
         </div>
-
     </section>
 
+<div id="review_form"></div>
+
+    <section class="contacts">
+        <div class="form_container">
+
+        <form id="form" method="post">
+            {% csrf_token %}
+            <div class="title_wrapper">
+            <div class="title">Заповніть форму</div>
+
+        </div>
+
+            <div class="user-details">
+
+
+
+                <div class="input-box2">
+                    <span class="details">Прізвище</span>
+                    <input type="text" name="surname" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" placeholder="Введіть прізвище" required>
+                </div>
+
+                <div class="input-box2">
+                    <span class="details">Ім'я</span>
+                    <input type="text" name="name" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" placeholder="Введіть ім'я" required>
+                </div>
+
+
+                <hr>
+
+                <div class="input-box2">
+                    <span class="details">Дата відправлення відгуку</span>
+                    <input type="date" id="date1" name="date1" placeholder="Обери дату" required>
+                </div>
+
+                <hr>
+
+                <div class="input-box-last">
+                    <span class="details">Текст відгуку</span>
+                    <textarea class="textarea" type="text" name="des" pattern="[А-ЯЇІҐЄ][а-яїіґє]{1,}" placeholder="Опишіть Ваші думки та враження про нас" maxlength="600" required></textarea>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="submit_btn">Відправити</button>
+
+            </div>
+        </form>
+        </div>
+    </section>
+
+
+
+
+
+
+
+        <script type="text/javascript">
+        // Встановити поточну дату для дати відправлення
+        document.getElementById('date1').min = new Date().toISOString().split("T")[0];
+        document.getElementById('date1').max = new Date().toISOString().split("T")[0];
+
+
+
+        // Додати обробник події для зміни дати відправлення
+        document.getElementById('date1').addEventListener('change', setMinArrivalDate);
+    </script>
 </body>
 </html>

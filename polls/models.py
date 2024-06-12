@@ -49,3 +49,16 @@ class Order(models.Model):
         verbose_name_plural = 'Замовлення'
         ordering = ['id']
 
+
+class Review(models.Model):
+    customer_second_name = models.CharField(max_length=50, verbose_name='Прізвище')
+    customer_first_name = models.CharField(max_length=50, verbose_name="Ім'я")
+    date = models.DateField(verbose_name='Дата відправлення')
+    discr = models.TextField(verbose_name='Текст відгуку')
+
+    class Meta:
+        verbose_name = 'Відгук'
+        verbose_name_plural = 'Відгуки'
+        ordering = ['id']
+
+

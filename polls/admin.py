@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Customer, Order
+from . models import Customer, Order, Review
 
 
 class Customer_Admin(admin.ModelAdmin):
@@ -14,5 +14,13 @@ class Order_Admin(admin.ModelAdmin):
     search_fields = ('customer_second_name', 'customer_first_name', 'city_1', 'city_2', 'date_1', 'date_2', 'status',)
 
 
+class Order_Review(admin.ModelAdmin):
+    list_display = ('id', 'customer_second_name', 'customer_first_name', 'date', 'discr')
+    list_filter = ('customer_second_name', 'customer_first_name', 'date')
+    search_fields = ('customer_second_name', 'customer_first_name', 'date', 'discr',)
+
+
 admin.site.register(Customer, Customer_Admin)
 admin.site.register(Order, Order_Admin)
+admin.site.register(Review, Order_Review)
+

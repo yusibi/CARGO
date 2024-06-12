@@ -1,4 +1,4 @@
-from .models import Customer, Order
+from .models import Customer, Order, Review
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.db import IntegrityError
 import random
@@ -260,5 +260,23 @@ def change_order_status(request, order_id):
     return render(request, 'polls/list_of_orders.html', {'orders': Order.objects.all()})
 
 
+def show_res_of_review(request):
+    return render(request, 'polls/suc_review.html')
+
+
 def show_review(request):
+    if request.method == 'POST':
+        customer_surname = request.POST.get('surname')
+        customer_name = request.POST.get('name')
+        date = request.POST.get('date1')
+        discr = request.POST.get('des')
+
+        review = Review.objects.create(
+            customer_second_name=customer_surname,
+            customer_first_name=customer_name,
+            date=date,
+            discr=discr,
+        )
+        review.save()
+        return redirect('review_res')
     return render(request, 'polls/reviews.html')
