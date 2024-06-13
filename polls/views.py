@@ -265,6 +265,9 @@ def show_res_of_review(request):
 
 
 def show_review(request):
+    reviews = Review.objects.all()
+    if request.method == 'GET':
+        return render(request, 'polls/reviews.html', {'reviews': reviews})
     if request.method == 'POST':
         customer_surname = request.POST.get('surname')
         customer_name = request.POST.get('name')

@@ -92,10 +92,25 @@
         </form>
         </div>
     </section>
+{% if reviews %}
+    <section class="reviews">
+        <div class="container2">
+            <div class="header_text">
+                Відгуки наших замовників
+            </div>
+            {% for review in reviews %}
+            <div class="reviw_wrapper">
 
-
-
-
+                <div class="review_content">
+                    <h2 class="title">{{ review.customer_second_name }} {{ review.customer_first_name }}</h2>
+                    <p>{{ review.discr }}</p>
+                    <p class="date">{{ review.date }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endif %}
 
 
 

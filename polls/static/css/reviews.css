@@ -240,35 +240,69 @@ p {
     background: #E4A65B;
 }
 
+.reviews {
+    padding-top: 65px;
+    padding-bottom: 72px;
+}
+
+.header_text {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    padding-top: 0px;
+    padding-bottom: 46px;
+    color: #464646;
+}
+
+.reviw_wrapper {
+    width: 100%;
+    max-width: 1280px;
+    background: #fff;
+    margin: 0 0%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    border-radius: 24px;
+    margin-bottom: 35px;
+    padding-right: 0px;
+}
+
+.reviw_wrapper:last-of-type {
+    margin-bottom: 0px;
+}
 
 
 
+.review_content {
+    width: 100%;
+    text-align: justify;
+    background: #eee;
+    padding: 40px 30px;
+    border-radius: 15px;
+}
 
+.title {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    color: #4373C2;
+    margin-bottom: 15px;
+}
 
+.date {
+    padding-top: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #878787;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.block__title {
+    margin-bottom: 48px;
+    text-align: center;
+    color: #464646;
+    font-weight: 700;
+    font-size: 28px;
+}
 
 
 .reviews_form {
@@ -534,6 +568,14 @@ form .user-details .input-box2-last {
     justify-content: space-between;
 }
 
+
+
+form .buttons {
+    height: 45px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
 .submit_btn {
     height: 100%;
     width: 100%;
@@ -556,10 +598,19 @@ form .user-details .input-box2-last {
     background: #477FDC;
 }
 
-form .buttons {
-    height: 45px;
-    margin-top: 20px;
-    margin-bottom: 15px;
+
+.form_container {
+    /* Залиште поточні стилі */
+    /* Додайте нові стилі: */
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center; /* Центруємо вміст вертикально */
+}
+
+.buttons {
+    /* Видаліть властивість margin-top */
+    /* Замініть наступний рядок: */
+    margin-bottom: 20px; /* Додаємо відступ знизу для кнопки */
 }
 
 .submit_btn {
@@ -570,4 +621,11 @@ form .buttons {
     justify-content: center;
     align-items: center;
     width: 300px;
+}
+
+.container2 {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 0px;
 }
