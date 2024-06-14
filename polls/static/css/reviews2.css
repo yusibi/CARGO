@@ -1,0 +1,178 @@
+*, *:before, :after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+
+
+p {
+    line-height: 1.6em;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.header {
+    background-color: #fff;
+    display: flex;
+    box-shadow: 0 0 15px rgb(0 0 0 / 35%);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.header_wrapper {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.header_go {
+    color: #4373C2;
+    font-weight: 700;
+}
+
+.logo_link {
+    text-decoration: none;
+    color: #464646;
+}
+
+.nav {
+    list-style: none;
+}
+
+.nav li {
+    display: inline-block;
+}
+
+.nav li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #464646;
+    margin-left: 55px;
+    font-weight: 700;
+    font-size: 16px;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.nav li a:hover,
+.nav li a:focus {
+    border-bottom: 2.2px solid #4373C2;
+}
+
+.nav li.active a {
+    border-bottom: 2.2px solid #4373C2;
+}
+
+.nav li.btn a {
+    color: #fff;
+    background: #4373C2;
+    border-radius: 5px;
+    padding: 10px 32px;
+}
+
+.nav li.btn:hover a {
+    color: #fff;
+    background: #477FDC;
+    transition: 0.3s;
+}
+
+.reviews {
+    padding-top: 65px;
+    padding-bottom: 72px;
+}
+
+.header_text {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    color: white;
+}
+
+.reviw_wrapper {
+    width: 100%;
+    max-width: 1280px;
+    background: #fff;
+    margin: 0 0%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    border-radius: 24px;
+    margin-bottom: 35px;
+    padding-right: 0px;
+}
+
+.reviw_wrapper:last-of-type {
+    margin-bottom: 0px;
+}
+
+
+
+.review_content {
+    width: 100%;
+    text-align: justify;
+    background: #eee;
+    padding: 40px 30px;
+    border-radius: 15px;
+}
+
+.title {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    color: #4373C2;
+    margin-bottom: 15px;
+}
+
+.date {
+    padding-top: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #878787;
+}
+
+.block__title {
+    margin-bottom: 48px;
+    text-align: center;
+    color: #464646;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.container2 {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 0px;
+}

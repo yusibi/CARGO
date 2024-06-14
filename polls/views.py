@@ -283,3 +283,10 @@ def show_review(request):
         review.save()
         return redirect('review_res')
     return render(request, 'polls/reviews.html')
+
+
+def show_all(request):
+    reviews = Review.objects.all()
+    if request.method == 'GET':
+        return render(request, 'polls/reviews2.html', {'reviews': reviews})
+

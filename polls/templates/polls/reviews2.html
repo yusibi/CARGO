@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/admin page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reviews2.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="img/title.svg">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <title>CARGO</title>
+    <title>Відгуки клієнтів</title>
 </head>
 <body>
     <header class="header" id="#top">
@@ -23,35 +23,32 @@
                         <span></span>
                     </div>
                 <ul class="nav">
-                    <li class="active"><a href="#">Головна</a></li>
+                    <li><a href="{% url 'display admin page' %}">Головна</a></li>
                     <li><a href="{% url 'list' %}">Всі замовлення</a></li>
-                    <li><a href="{% url 'all' %}">Відгуки</a></li>
+                    <li class="active"><a href="reviews.html">Відгуки</a></li>
                 </ul>
             </div>
         </div>
     </header>
+    {% if reviews %}
+    <section class="reviews">
+        <div class="container2">
+            <div class="header_text">
+                Відгуки наших замовників
+            </div>
+            {% for review in reviews %}
+            <div class="reviw_wrapper">
 
-    <section class="intro">
-        <div class="container">
-            <div class="intro_wrapper">
-                <div class="intro_text">
-                    <h1 class="intro_title">Шановний адміністраторе! </h1>
-                        <h1 class="intro_title">Ми раді, що Ви працюєте разом з CAR<span class="header_go">GO</span></h1>
-                </div>
-                <div class="intro_image">
-                    <img class="lorry" src="{% static 'images/lorry.svg' %}" alt="lorry">
+                <div class="review_content">
+                    <h2 class="title">{{ review.customer_second_name }} {{ review.customer_first_name }}</h2>
+                    <p>{{ review.discr }}</p>
+                    <p class="date">{{ review.date }}</p>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </section>
-
-    <footer class="footer">
-        <div class="container">
-           <div class="footer_inner">
-               <p>З нами вже працюють {{ res }} </p>
-           </div>
-        </div>
-    </footer>
+{% endif %}
 
 </body>
 </html>
